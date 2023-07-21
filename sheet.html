@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"],
+    button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    @media screen and (max-width: 480px) {
+      form {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Create a Sheet</h1>
+  <form id="submitForm">
+    <label for="sheetName">Enter Sheet Name:</label>
+    <input type="text" id="sheetName" name="sheetName" required>
+    <button type="submit">Create Sheet</button>
+  </form>
+
+  <button onclick="goBack()">Go Back</button>
+
+  <script>
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyxaQuo4Bsyuf2Y3jRccCVM05jZkr0VZEqGJUOPC4Fc_GJyjV8UQX0663E7CwWvrOiEGg/exec'; // Replace with the actual script URL
+
+    const submitForm = document.getElementById('submitForm');
+
+    submitForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(submitForm);
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === 'success') {
+            alert(`Sheet "${data.sheetName}" has been created successfully!`);
+          } else {
+            alert('Already Created');
+          }
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+</body>
+</html>
