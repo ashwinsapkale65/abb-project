@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ... Rest of your head section ... -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"],
+    button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    @media screen and (max-width: 480px) {
+      form {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
-<style>
-	/* Reset some default styles */
-body, h1, h2, h3, h4, h5, h6, p, ul, li {
-  margin: 0;
-  padding: 0;
-}
-
-/* Apply some basic styling to the links */
-a {
-  display: block;
-  text-decoration: none;
-  color: #333;
-  padding: 10px;
-  border: 1px solid #333;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  width: 200px;
-  text-align: center;
-}
-
-/* Style the links when hovered or focused */
-a:hover,
-a:focus {
-  background-color: #333;
-  color: #fff;
-}
-
-/* Center the links horizontally and add some margin at the top */
-body {
- 
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* Apply responsive styles for different screen sizes */
-/* For small screens */
-@media screen and (max-width: 600px) {
-  body {
-    flex-direction: column; /* Stack the links vertically */
-  }
-  a {
-    width: 100%; /* Make the links take up the full width */
-  }
-}
-
-/* For medium screens */
-@media screen and (min-width: 601px) and (max-width: 900px) {
-  body {
-    flex-wrap: wrap; /* Allow links to wrap into multiple rows */
-  }
-  a {
-    width: calc(50% - 20px); /* Make the links take half of the width with some margin */
-  }
-}
-
-/* For large screens */
-@media screen and (min-width: 901px) {
-  a {
-    width: auto; /* Reset the link width to its default size */
-  }
-}
-
-</style>
 <body>
+  <h1>ABB PROJECT</h1>
+  <form id="submitForm">
+   
+	<button onclick="location.href='sheet.html'">Create Sheet</button>
+	<button onclick="location.href='heading.html'">Write Heading For Sheet</button>
+	<button onclick="location.href='content.html'">Write The Content in Sheet</button>
+	<button onclick="location.href='view.html'">View Sheet</button>
+  </body>
+  </form>
 
-	<a href="sheet.html">Create Sheet</a>
-	<a href="heading.html">Write Heading For Sheet</a>
-	<a href="content.html"> Write The content in sheet</a>
-	<a href="view.html"> Write The content in sheet</a>
+  <button onclick="goBack()">Go Back</button>
+
+  <script>
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+
+
 
 </body>
 </html>
